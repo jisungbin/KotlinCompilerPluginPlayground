@@ -14,7 +14,7 @@ class Test {
 
   @Test
   fun debug() {
-
+    println("HE!")
   }
 
   private fun compile(vararg sourceFiles: SourceFile) =
