@@ -7,6 +7,7 @@ import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar
 import org.jetbrains.kotlin.compiler.plugin.ComponentRegistrar
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import org.jetbrains.kotlin.config.CompilerConfiguration
+import team.duckie.quackquack.util.backend.kotlinc.getLogger
 
 @AutoService(ComponentRegistrar::class)
 class MainRegistrar : CompilerPluginRegistrar() {

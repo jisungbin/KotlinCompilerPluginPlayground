@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalCompilerApi::class)
+@file:Suppress("unused")
 
 import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.SourceFile
@@ -7,6 +8,8 @@ import org.jetbrains.kotlin.config.JvmTarget
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TemporaryFolder
+import utils.source
+import java.io.File
 
 class Test {
   @get:Rule
@@ -14,7 +17,7 @@ class Test {
 
   @Test
   fun debug() {
-    println("HE!")
+    compile(source("QuackColor.kt"))
   }
 
   private fun compile(vararg sourceFiles: SourceFile) =
