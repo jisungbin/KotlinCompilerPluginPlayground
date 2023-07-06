@@ -1,8 +1,10 @@
-@file:Suppress("unused")
+@file:Suppress("unused", "UNUSED_VARIABLE", "RedundantUnitExpression")
 @file:OptIn(UnsafeCastFunction::class, ObsoleteDescriptorBasedAPI::class)
 
 package rubberdoc.visitor.color
 
+import aosp.IrSourcePrinterVisitor
+import aosp.dumpSrc
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.backend.jvm.getGetterField
 import org.jetbrains.kotlin.ir.ObsoleteDescriptorBasedAPI
@@ -10,8 +12,15 @@ import org.jetbrains.kotlin.ir.declarations.IrClass
 import org.jetbrains.kotlin.ir.declarations.IrValueParameter
 import org.jetbrains.kotlin.ir.declarations.impl.IrFieldImpl
 import org.jetbrains.kotlin.ir.descriptors.toIrBasedKotlinType
-import org.jetbrains.kotlin.ir.util.*
+import org.jetbrains.kotlin.ir.util.companionObject
+import org.jetbrains.kotlin.ir.util.constructors
+import org.jetbrains.kotlin.ir.util.defaultConstructor
+import org.jetbrains.kotlin.ir.util.parentAsClass
+import org.jetbrains.kotlin.ir.util.primaryConstructor
+import org.jetbrains.kotlin.ir.util.properties
+import org.jetbrains.kotlin.ir.util.statements
 import org.jetbrains.kotlin.ir.visitors.IrElementVisitorVoid
+import org.jetbrains.kotlin.ir.visitors.acceptVoid
 import org.jetbrains.kotlin.utils.addToStdlib.UnsafeCastFunction
 import org.jetbrains.kotlin.utils.addToStdlib.cast
 import rubberdoc.node.Color
@@ -48,9 +57,10 @@ class ColorDrVisitor(
           colorableProperties.map { property ->
             val getter = property.getter!!
             val returnStatement = getter.body!!.statements.first()
-            println(returnStatement.render())
-            println("---")
-            println(returnStatement.dump())
+            println(returnStatement.dumpSrc())
+            val out = StringBuilder()
+            returnStatement.acceptVoid(IrSourcePrinterVisitor(out))
+            println(out.toString())
             val returnType = getter.returnType.toIrBasedKotlinType()
             val getterField = getter.getGetterField()!!
             val field = property.backingField!!.cast<IrFieldImpl>()
