@@ -6,14 +6,14 @@ import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
 @JvmInline
-value class Color(private val value: Long) {
+value class Color<T : Any>(private val value: T) {
   companion object {
-    val UnspecifiedValue = Color(0)
+    val UnspecifiedValue = Color(0L)
   }
 }
 
 @JvmInline
-value class QuackColor(private val value: Color) : ReadOnlyProperty<Any, Color> {
+value class QuackColor(private val value: Color<Long>) : ReadOnlyProperty<Any, Color<Long>> {
   companion object {
     val DuckieOrange = QuackColor(Color(0xFFFF8300))
     val UnspecifiedColor = QuackColor(Color.UnspecifiedValue)
@@ -28,5 +28,5 @@ value class QuackColor(private val value: Color) : ReadOnlyProperty<Any, Color> 
     val White = QuackColor(Color(0xFFFFFFFF))
   }
 
-  override fun getValue(thisRef: Any, property: KProperty<*>): Color = value
+  override fun getValue(thisRef: Any, property: KProperty<*>): Color<Long> = value
 }

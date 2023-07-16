@@ -5,6 +5,7 @@ package rubberdoc.visitor.color
 
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.backend.jvm.getGetterField
+import org.jetbrains.kotlin.backend.jvm.ir.psiElement
 import org.jetbrains.kotlin.ir.ObsoleteDescriptorBasedAPI
 import org.jetbrains.kotlin.ir.declarations.IrClass
 import org.jetbrains.kotlin.ir.declarations.IrValueParameter
@@ -60,6 +61,9 @@ class ColorDrVisitor(
               } as IrReturnImpl
             val returnType = returnStatement.value.type.toIrBasedKotlinType()
             val getterField = getter.getGetterField()!!
+            val getterPsi = getter.psiElement
+            val getterFieldPsi = getterField.psiElement
+            val backingFieldPsi = property.backingField!!.psiElement
             val field = property.backingField!!.cast<IrFieldImpl>()
             val parent = field.symbol.owner.parentAsClass
             val constructors = parent.constructors.toList()
