@@ -27,7 +27,7 @@ tasks.withType<Test> {
 }
 
 dependencies {
-    implementation("team.duckie.quackquack.util:util-backend-kotlinc:2.0.0-alpha01")
+    implementation("team.duckie.quackquack.util:util-backend-kotlinc:2.0.0-alpha02")
     implementation("org.jetbrains.kotlin:kotlin-compiler-embeddable:1.8.22")
     testImplementation("com.github.tschuchortdev:kotlin-compile-testing:1.5.0")
 
