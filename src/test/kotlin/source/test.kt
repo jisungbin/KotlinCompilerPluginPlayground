@@ -2,5 +2,9 @@ package source
 
 val helloWorld: Unit
   get() {
-    println("Hello, World!")
+    A.b.print("A")
   }
+
+object A { val b = B }
+object B
+fun B.print(a: String) = println(a)
