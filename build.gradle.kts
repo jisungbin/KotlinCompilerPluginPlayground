@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.config.AnalysisFlags.optIn
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.8.22"
+    kotlin("jvm") version "1.9.21"
     id("com.google.devtools.ksp") version "1.8.22-1.0.11"
     application
 }
