@@ -31,5 +31,5 @@ dependencies {
     ksp("dev.zacsweers.autoservice:auto-service-ksp:1.1.0")
 
     testImplementation("junit:junit:4.13.2")
-    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.9.3")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.10.1")
 }
