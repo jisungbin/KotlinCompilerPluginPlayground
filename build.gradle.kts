@@ -24,7 +24,7 @@ tasks.withType<Test> {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-compiler-embeddable:1.8.22")
+    implementation("org.jetbrains.kotlin:kotlin-compiler-embeddable:1.9.21")
     testImplementation("dev.zacsweers.kctfork:core:0.4.0")
 
     implementation("com.google.auto.service:auto-service-annotations:1.1.1")
