@@ -28,7 +28,7 @@ dependencies {
     testImplementation("dev.zacsweers.kctfork:core:0.4.0")
 
     implementation("com.google.auto.service:auto-service-annotations:1.1.1")
-    ksp("dev.zacsweers.autoservice:auto-service-ksp:1.0.0")
+    ksp("dev.zacsweers.autoservice:auto-service-ksp:1.1.0")
 
     testImplementation("junit:junit:4.13.2")
     testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.9.3")
