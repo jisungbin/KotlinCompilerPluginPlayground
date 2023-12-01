@@ -17,7 +17,7 @@ class Test {
 
   @Test
   fun debug() {
-    compile(source("QuackColor.kt"))
+    compile(source("test.kt"))
   }
 
   private fun compile(vararg sourceFiles: SourceFile) =
