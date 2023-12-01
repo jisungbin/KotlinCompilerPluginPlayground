@@ -1,18 +1,25 @@
 package source
 
-import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-class TestDelegator : ReadOnlyProperty<Any?, String> {
-  val value = "Hello, World!"
-  override fun getValue(thisRef: Any?, property: KProperty<*>) = value
+class Value
+
+class State {
+  var value = Value()
 }
 
-fun main() {
-  val delegator = TestDelegator()
-  val direct = delegator.value
-  val delegation by delegator
+inline fun <T> remember(lambda: () -> T): T = lambda()
 
-  println("direct: $direct")
-  println("delegation: $delegation")
+@Suppress("NOTHING_TO_INLINE")
+inline operator fun State.getValue(thisObj: State?, property: KProperty<*>): Value = value
+
+@Suppress("NOTHING_TO_INLINE")
+inline operator fun State.setValue(thisObj: State?, property: KProperty<*>, value: Value) {
+  this.value = value
+}
+
+@Suppress("UNUSED_VARIABLE")
+fun main() {
+  val direct = remember { State() }
+  var delegation by remember { State() }
 }
