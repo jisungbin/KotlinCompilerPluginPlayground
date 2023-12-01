@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.config.AnalysisFlags.optIn
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -12,10 +13,6 @@ repositories {
     google()
 }
 
-application {
-    mainClass.set("MainKt")
-}
-
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = freeCompilerArgs + "-opt-in=kotlin.RequiresOptIn"
@@ -27,11 +24,8 @@ tasks.withType<Test> {
 }
 
 dependencies {
-    implementation("team.duckie.quackquack.util:util-backend-kotlinc:2.0.0-alpha01")
     implementation("org.jetbrains.kotlin:kotlin-compiler-embeddable:1.8.22")
-    testImplementation("com.github.tschuchortdev:kotlin-compile-testing:1.5.0")
-
-    implementation("com.squareup:kotlinpoet:1.14.2")
+    testImplementation("dev.zacsweers.kctfork:core:0.4.0")
 
     implementation("com.google.auto.service:auto-service-annotations:1.1.1")
     ksp("dev.zacsweers.autoservice:auto-service-ksp:1.0.0")
