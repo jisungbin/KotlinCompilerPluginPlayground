@@ -31,7 +31,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-compiler-embeddable:1.8.22")
     testImplementation("com.github.tschuchortdev:kotlin-compile-testing:1.5.0")
 
-    implementation("com.squareup:kotlinpoet:1.14.2")
+    implementation("com.squareup:kotlinpoet:1.15.2")
 
     implementation("com.google.auto.service:auto-service-annotations:1.1.1")
     ksp("dev.zacsweers.autoservice:auto-service-ksp:1.0.0")
