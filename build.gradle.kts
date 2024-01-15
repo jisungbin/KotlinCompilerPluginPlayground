@@ -8,7 +8,7 @@ plugins {
 
 mavenPublishing {
   @Suppress("UnstableApiUsage")
-  coordinates("land.sungbin.kotlin", "kotlin-compiler-ir-dump", "0.1.0")
+  coordinates("land.sungbin.kotlin", "kotlin-compiler-ir-dump", "0.2.0")
 }
 
 repositories {
