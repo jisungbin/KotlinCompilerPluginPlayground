@@ -36,7 +36,7 @@ tasks.withType<Test> {
 
 dependencies {
   compileOnly(embeddedKotlin("compiler-embeddable"))
-  testImplementation("dev.zacsweers.kctfork:core:0.4.0")
+  testImplementation("dev.zacsweers.kctfork:core:0.5.0")
 
   implementation("com.google.auto.service:auto-service-annotations:1.1.1")
   ksp("dev.zacsweers.autoservice:auto-service-ksp:1.1.0")
