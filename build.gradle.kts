@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   kotlin("jvm") version "1.9.22"
-  id("com.google.devtools.ksp") version "1.9.22-1.0.17"
+  id("com.google.devtools.ksp") version "2.0.0-1.0.22"
   id("com.vanniktech.maven.publish") version "0.27.0"
 }
 
