@@ -1,3 +1,3 @@
 ## KotlinCompilerPluginPlayground
 
-for ir dumping...
+Hi, hello.

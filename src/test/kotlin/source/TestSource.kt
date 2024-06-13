@@ -6,6 +6,7 @@ fun main() {
     val a = 2.also { b: Any ->
       result.add(b as Int)
     }
+    println(a)
   }
   println(result)
 }
