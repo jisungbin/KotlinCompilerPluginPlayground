@@ -5,6 +5,6 @@ import source.source
 class K2Test : AbstractCompilerTest() {
   @Test
   fun playground() {
-    analyze(listOf(source("TestSource.kt")))
+    compileToIr(listOf(source("TestSource.kt")))
   }
 }
