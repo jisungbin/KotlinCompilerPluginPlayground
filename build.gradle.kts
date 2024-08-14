@@ -1,10 +1,10 @@
 plugins {
-  id("org.jetbrains.kotlin.jvm") version "2.0.20-dev-6176"
-  id("com.vanniktech.maven.publish") version "0.28.0"
+  id("org.jetbrains.kotlin.jvm") version "2.0.20-RC2"
+  id("com.vanniktech.maven.publish") version "0.29.0"
 }
 
 mavenPublishing {
-  coordinates("land.sungbin.kotlin", "kotlin-compiler-ir-dump", "2.0.0")
+  coordinates("land.sungbin.kotlin", "kotlin-compiler-playground", "2.0.0")
 }
 
 kotlin {
@@ -23,6 +23,6 @@ tasks.withType<Test> {
 }
 
 dependencies {
-  implementation("org.jetbrains.kotlin:kotlin-compiler:2.0.20-dev-6176")
+  implementation(kotlin("compiler", version = "2.0.20-RC2"))
   testImplementation(kotlin("test-junit5"))
 }

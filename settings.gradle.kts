@@ -4,15 +4,15 @@ rootProject.name = "KotlinCompilerPluginPlayground"
 
 pluginManagement {
   repositories {
-    maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
     gradlePluginPortal()
     mavenCentral()
+    maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
   }
 }
 
 dependencyResolutionManagement {
   repositories {
-    maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
     mavenCentral()
+    maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
   }
 }
