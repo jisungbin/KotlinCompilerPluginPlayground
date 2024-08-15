@@ -18,3 +18,8 @@ fun test2() {
     else -> println("else")
   }
 }
+
+fun test3() {
+  val lambda = { println(1) }
+  lambda.invoke()
+}
