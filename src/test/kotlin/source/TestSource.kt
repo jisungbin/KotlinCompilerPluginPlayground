@@ -1,11 +1,6 @@
 package source
 
-fun entry() {
-  lambda {
-    "Hello, world!"
-  }
-}
-
-fun lambda(block: () -> String) {
-  println(block())
-}
+fun Int.test() = toString()
+var Int.test
+  set(field) = Unit
+  get() = toString()

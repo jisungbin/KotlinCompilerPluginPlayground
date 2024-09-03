@@ -78,7 +78,7 @@ abstract class KotlinCompilerFacade(val environment: KotlinCoreEnvironment) {
   ): GenerationState
 
   companion object {
-    const val TEST_MODULE_NAME = "test-module"
+    const val TEST_MODULE_NAME = "source.test-module"
 
     fun create(
       disposable: Disposable,
