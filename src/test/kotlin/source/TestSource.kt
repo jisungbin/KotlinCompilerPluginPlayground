@@ -1,11 +1,11 @@
 package source
 
-object Test {
+object TestObj {
   fun lambdaTest(value: Any) { print(value) }
 }
 
 fun test() {
-  1.also(Test::lambdaTest)
+  1.also(TestObj::lambdaTest)
 
   fun lambda(value: Any) { print(value) }
 
