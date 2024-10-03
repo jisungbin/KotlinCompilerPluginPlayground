@@ -38,20 +38,17 @@ abstract class AbstractCompilerTest {
     }
 
     val defaultClassPath by lazy { listOf(Classpath.kotlinStdlibJar()) }
-    val defaultClassLoader = this::class.java.classLoader
   }
 
   private val testRootDisposable = Disposer.newDisposable()
 
-  @BeforeTest
-  fun setSystemProperties() {
+  @BeforeTest fun setSystemProperties() {
     System.setProperty("idea.home", homeDir)
     System.setProperty("user.dir", homeDir)
     System.setProperty("idea.ignore.disabled.plugins", "true")
   }
 
-  @AfterTest
-  fun disposeTestRootDisposable() {
+  @AfterTest fun disposeTestRootDisposable() {
     Disposer.dispose(testRootDisposable)
   }
 

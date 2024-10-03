@@ -91,7 +91,7 @@ abstract class KotlinCompilerFacade(val environment: KotlinCoreEnvironment) {
         put(CommonConfigurationKeys.USE_FIR, true)
         put(CommonConfigurationKeys.VERIFY_IR, IrVerificationMode.ERROR)
         put(CommonConfigurationKeys.ENABLE_IR_VISIBILITY_CHECKS, true)
-        put(JVMConfigurationKeys.JVM_TARGET, JvmTarget.JVM_17)
+        put(JVMConfigurationKeys.JVM_TARGET, JvmTarget.JVM_22)
         messageCollector = TestMessageCollector
         updateConfiguration()
       }
