@@ -1,13 +1,9 @@
 package source
 
-object TestObj {
-  fun lambdaTest(value: Any) { print(value) }
-}
+object Test {
+  private val data = Any()
 
-fun test() {
-  1.also(TestObj::lambdaTest)
-
-  fun lambda(value: Any) { print(value) }
-
-  1.also(::lambda)
+  init {
+    println("[${Unit}] $data")
+  }
 }
