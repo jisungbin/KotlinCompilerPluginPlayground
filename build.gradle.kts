@@ -1,5 +1,5 @@
 plugins {
-  id("org.jetbrains.kotlin.jvm") version "2.0.20"
+  id("org.jetbrains.kotlin.jvm") version "2.0.21-RC"
   id("com.vanniktech.maven.publish") version "0.29.0"
 }
 
@@ -23,6 +23,6 @@ tasks.withType<Test> {
 }
 
 dependencies {
-  implementation(kotlin("compiler", version = "2.0.20"))
+  implementation(kotlin("compiler", version = "2.0.21-RC"))
   testImplementation(kotlin("test-junit5"))
 }
