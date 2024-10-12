@@ -17,12 +17,12 @@ class FirCheckerRegistrar(@Suppress("unused") private val logger: Logger) : FirE
 
 class FileValidatorExtension(session: FirSession) : FirAdditionalCheckersExtension(session) {
   override val declarationCheckers: DeclarationCheckers = object : DeclarationCheckers() {
-    override val fileCheckers: Set<FirFileChecker> = setOf(FileValidator)
+    // override val fileCheckers: Set<FirFileChecker> = setOf(FileValidator)
   }
 }
 
-private object FileValidator : FirFileChecker(MppCheckerKind.Common) {
-  override fun check(declaration: FirFile, context: CheckerContext, reporter: DiagnosticReporter) {
-    declaration.validate()
-  }
-}
+//private object FileValidator : FirFileChecker(MppCheckerKind.Common) {
+//  override fun check(declaration: FirFile, context: CheckerContext, reporter: DiagnosticReporter) {
+//    declaration.validate()
+//  }
+//}

@@ -1,9 +1,5 @@
 package source
 
-object Test {
-  private val data = Any()
-
-  init {
-    println("[${Unit}] $data")
-  }
+fun plus(a: Int, b: Int) {
+  println(a + b)
 }
