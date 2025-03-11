@@ -1,6 +1,6 @@
 plugins {
-  id("org.jetbrains.kotlin.jvm") version "2.0.21-RC"
-  id("com.vanniktech.maven.publish") version "0.29.0"
+  id("org.jetbrains.kotlin.jvm") version "2.1.0"
+  id("com.vanniktech.maven.publish") version "0.31.0"
 }
 
 mavenPublishing {
@@ -23,6 +23,7 @@ tasks.withType<Test> {
 }
 
 dependencies {
-  implementation(kotlin("compiler", version = "2.0.21-RC"))
+  implementation(kotlin("compiler-embeddable", version = "2.1.10"))
   testImplementation(kotlin("test-junit5"))
+  testImplementation("dev.zacsweers.kctfork:core:0.7.0")
 }

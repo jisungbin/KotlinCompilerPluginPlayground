@@ -1,9 +1,14 @@
-import compiler.AbstractCompilerTest
+import com.tschuchort.compiletesting.KotlinCompilation
 import kotlin.test.Test
 import source.source
 
-class K2Test : AbstractCompilerTest() {
+class K2Test {
   @Test fun playground() {
-    compileToIr(listOf(source("TestSource.kt")))
+    KotlinCompilation().apply {
+      sources = listOf(source("TestSource.kt"))
+      compilerPluginRegistrars = listOf(MainRegistrar())
+      inheritClassPath = true
+      messageOutputStream = System.out
+    }.compile()
   }
 }

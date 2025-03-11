@@ -1,16 +1,15 @@
 package source
 
-private fun currentFunctionName(): String = TODO()
-
-fun main() {
-  println(currentFunctionName()) // "main" 출력
-
-  val lambda = { println(currentFunctionName()) }
-  lambda.invoke() // "<anonymous>" 출력
-
-  otherFunction() // "otherFunction" 출력
+class Logger {
+  fun log() = Unit
 }
 
-fun otherFunction() {
-  println(currentFunctionName())
+class TestClass {
+  companion object {
+    val logger = Logger()
+  }
+}
+
+fun main() {
+  TestClass.logger.log()
 }
