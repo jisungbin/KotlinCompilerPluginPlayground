@@ -1,15 +1,10 @@
 package source
 
-class Logger {
-  fun log() = Unit
-}
+@Target(AnnotationTarget.TYPE)
+annotation class A
 
-class TestClass {
-  companion object {
-    val logger = Logger()
-  }
-}
+private fun myCall(b: Any = Any(), a: @A () -> Unit) {}
 
 fun main() {
-  TestClass.logger.log()
+  myCall {}
 }
