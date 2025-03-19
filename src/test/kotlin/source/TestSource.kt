@@ -1,10 +1,16 @@
 package source
 
-@Target(AnnotationTarget.TYPE)
-annotation class A
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 
-private fun myCall(b: Any = Any(), a: @A () -> Unit) {}
+object MyState : State<Any> {
+  override val value: Any get() = ""
+}
 
-fun main() {
-  myCall {}
+@Composable fun MyComposable() {
+  val a: State<Any> = MyState
+  val b: State<Any> = remember { MyState }
+  val c: State<Any> = rememberSaveable { MyState }
 }

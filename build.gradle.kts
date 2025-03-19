@@ -1,5 +1,5 @@
 plugins {
-  id("org.jetbrains.kotlin.jvm") version "2.1.0"
+  id("org.jetbrains.kotlin.jvm") version "2.1.20-RC3"
   id("com.vanniktech.maven.publish") version "0.31.0"
 }
 
@@ -23,7 +23,14 @@ tasks.withType<Test> {
 }
 
 dependencies {
-  implementation(kotlin("compiler-embeddable", version = "2.1.10"))
+  kotlinCompilerPluginClasspath(kotlin("compose-compiler-plugin-embeddable", version = "2.1.20-RC3") )
+
+  implementation(kotlin("compiler-embeddable", version = "2.1.20-RC3"))
+  implementation(kotlin("compose-compiler-plugin-embeddable", version = "2.1.20-RC3"))
+
+  implementation("org.jetbrains.compose.runtime:runtime:1.8.0-alpha04")
+  implementation("org.jetbrains.compose.runtime:runtime-saveable:1.8.0-alpha04")
+
   testImplementation(kotlin("test-junit5"))
   testImplementation("dev.zacsweers.kctfork:core:0.7.0")
 }
