@@ -1,16 +1,11 @@
 package source
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
+fun testMain() {
+  val lambda = { println() }
 
-object MyState : State<Any> {
-  override val value: Any get() = ""
+  test(
+    testArgument = { println(); lambda() },
+  )
 }
 
-@Composable fun MyComposable() {
-  val a: State<Any> = MyState
-  val b: State<Any> = remember { MyState }
-  val c: State<Any> = rememberSaveable { MyState }
-}
+private fun test(testArgument: () -> Unit) = testArgument()
