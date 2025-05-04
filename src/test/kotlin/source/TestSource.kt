@@ -1,11 +1,6 @@
 package source
 
-fun testMain() {
-  val lambda = { println() }
-
-  test(
-    testArgument = { println(); lambda() },
-  )
+class Test {
+  private var maybeProperty = Any()
+  private val iHopeThisIrIsFieldButProperty = Any()
 }
-
-private fun test(testArgument: () -> Unit) = testArgument()

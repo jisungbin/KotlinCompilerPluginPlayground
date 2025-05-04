@@ -7,7 +7,7 @@ class K2Test {
     KotlinCompilation().apply {
       sources = listOf(source("TestSource.kt"))
       compilerPluginRegistrars = listOf(MainRegistrar())
-      jvmTarget = "11"
+      jvmTarget = "17"
       inheritClassPath = true
       messageOutputStream = System.out
     }.compile()
