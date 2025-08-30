@@ -26,7 +26,7 @@ dependencies {
   // kotlinCompilerPluginClasspath(kotlin("compose-compiler-plugin-embeddable", version = "2.1.10"))
 
   implementation(kotlin("compiler-embeddable", version = "2.1.10"))
-  // implementation(kotlin("compose-compiler-plugin-embeddable", version = "2.1.10"))
+  implementation(kotlin("compose-compiler-plugin-embeddable", version = "2.1.10"))
 
   testImplementation(kotlin("test-junit5"))
   testImplementation("dev.zacsweers.kctfork:core:0.7.0")
