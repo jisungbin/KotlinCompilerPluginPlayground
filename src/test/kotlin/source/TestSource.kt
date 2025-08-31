@@ -1,20 +1,14 @@
 package source
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.currentRecomposeScope
 import kotlin.random.Random
 
-open class Test {
-  @Composable open fun A(): Int {
-    if (Random.nextBoolean()) return 2
-    return 1
-  }
-}
-
-object AA : Test() {
-  @Composable override fun A(): Int {
+object AA {
+  @Composable fun A(): Int {
     if (Random.nextBoolean()) return 3
-    val a = super.A()
-    return a
+    println("recomposeScope is $currentRecomposeScope")
+    return 1
   }
 }
 
