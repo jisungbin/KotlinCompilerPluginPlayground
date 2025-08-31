@@ -1,9 +1,23 @@
 package source
 
-import kotlin.properties.Delegates
+import androidx.compose.runtime.Composable
+import kotlin.random.Random
 
-fun main() {
-  var a by Delegates.notNull<Int>()
-  a = 1
-  println(a)
+open class Test {
+  @Composable open fun A(): Int {
+    if (Random.nextBoolean()) return 2
+    return 1
+  }
+}
+
+object AA : Test() {
+  @Composable override fun A(): Int {
+    if (Random.nextBoolean()) return 3
+    val a = super.A()
+    return a
+  }
+}
+
+@Composable fun a() {
+  AA.A()
 }

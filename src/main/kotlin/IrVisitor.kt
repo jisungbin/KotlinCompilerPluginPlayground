@@ -2,9 +2,9 @@ import androidx.compose.compiler.plugins.kotlin.lower.dumpSrc
 import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.ir.IrElement
+import org.jetbrains.kotlin.ir.declarations.IrDeclarationOrigin
+import org.jetbrains.kotlin.ir.declarations.IrFunction
 import org.jetbrains.kotlin.ir.declarations.IrModuleFragment
-import org.jetbrains.kotlin.ir.expressions.IrLocalDelegatedPropertyReference
-import org.jetbrains.kotlin.ir.util.dump
 import org.jetbrains.kotlin.ir.visitors.IrVisitorVoid
 import org.jetbrains.kotlin.ir.visitors.acceptChildrenVoid
 
@@ -17,9 +17,11 @@ class IrTestExtension(private val logger: Logger) : IrGenerationExtension {
           element.acceptChildrenVoid(this)
         }
 
-        override fun visitLocalDelegatedPropertyReference(expression: IrLocalDelegatedPropertyReference) {
-          super.visitLocalDelegatedPropertyReference(expression)
-          logger("LocalDelegatedPropertyReference: ${expression.dumpSrc(true)}")
+        override fun visitFunction(declaration: IrFunction) {
+          super.visitFunction(declaration)
+          if (declaration.origin == IrDeclarationOrigin.LOCAL_FUNCTION_FOR_LAMBDA) {
+            println()
+          }
         }
       }
     )
