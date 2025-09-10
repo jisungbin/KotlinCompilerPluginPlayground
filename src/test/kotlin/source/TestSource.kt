@@ -1,9 +1,8 @@
 package source
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
+fun test() {
+  fun a(a: Any) = Unit
 
-class T {
-  var a: Any by mutableStateOf(Any())
+  1.also(::print)
+  1.also(::a)
 }
