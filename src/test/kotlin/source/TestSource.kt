@@ -1,8 +1,23 @@
 package source
 
-fun test() {
-  fun a(a: Any) = Unit
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
+import kotlin.reflect.KProperty
 
-  1.also(::print)
-  1.also(::a)
+object MaterialTheme {
+  val background: Int = 0
 }
+
+fun interface ThemeToken<T> {
+
+  @Composable
+  @ReadOnlyComposable
+  fun MaterialTheme.resolve(): T
+
+  @Composable
+  @ReadOnlyComposable
+  operator fun getValue(thisRef: Any?, property: KProperty<*>) = MaterialTheme.resolve()
+}
+
+@get:Composable
+val background by ThemeToken { background }
