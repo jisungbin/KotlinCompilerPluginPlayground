@@ -20,15 +20,14 @@ class IrTestExtension(private val logger: Logger) : IrGenerationExtension {
     moduleFragment.acceptChildrenVoid(
       object : IrVisitorVoid() {
         override fun visitElement(element: IrElement) {
-          element.acceptVoid(this)
           element.acceptChildrenVoid(this)
         }
 
         override fun visitFunction(declaration: IrFunction) {
-          super.visitFunction(declaration)
-          if (declaration.isComposableDelegatedAccessor()) {
+          if (declaration.name.asString() == "<get-value>" || declaration.isComposableDelegatedAccessor()) {
             println()
           }
+          super.visitFunction(declaration)
         }
       }
     )

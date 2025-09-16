@@ -7,7 +7,7 @@ class K2Test {
   @Test fun playground() {
     KotlinCompilation().apply {
       sources = listOf(source("TestSource.kt"))
-      compilerPluginRegistrars = listOf(ComposePluginRegistrar(), MainRegistrar())
+      compilerPluginRegistrars = listOf(MainRegistrar())
       jvmTarget = "21"
       inheritClassPath = true
       messageOutputStream = System.out
