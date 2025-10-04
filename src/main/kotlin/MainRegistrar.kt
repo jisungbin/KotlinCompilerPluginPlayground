@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
 import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.fir.extensions.FirExtensionRegistrarAdapter
@@ -15,7 +16,7 @@ class MainRegistrar : CompilerPluginRegistrar() {
 //        traceMarkersEnabled = false,
 //      )
 //    )
-//    IrGenerationExtension.registerExtension(IrTestExtension(logger))
+    IrGenerationExtension.registerExtension(IrTestExtension(logger))
     FirExtensionRegistrarAdapter.registerExtension(FirCheckerRegistrar(logger))
   }
 }
