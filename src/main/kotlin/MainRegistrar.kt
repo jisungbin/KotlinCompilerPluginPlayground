@@ -1,9 +1,6 @@
-import androidx.compose.compiler.plugins.kotlin.ComposeIrGenerationExtension
-import androidx.compose.compiler.plugins.kotlin.FeatureFlags
-import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
-import org.jetbrains.kotlin.cli.common.messages.MessageCollector
 import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar
 import org.jetbrains.kotlin.config.CompilerConfiguration
+import org.jetbrains.kotlin.fir.extensions.FirExtensionRegistrarAdapter
 
 class MainRegistrar : CompilerPluginRegistrar() {
   override val supportsK2: Boolean get() = true
@@ -18,7 +15,7 @@ class MainRegistrar : CompilerPluginRegistrar() {
 //        traceMarkersEnabled = false,
 //      )
 //    )
-    IrGenerationExtension.registerExtension(IrTestExtension(logger))
-    // FirExtensionRegistrarAdapter.registerExtension(FirCheckerRegistrar(logger))
+//    IrGenerationExtension.registerExtension(IrTestExtension(logger))
+    FirExtensionRegistrarAdapter.registerExtension(FirCheckerRegistrar(logger))
   }
 }

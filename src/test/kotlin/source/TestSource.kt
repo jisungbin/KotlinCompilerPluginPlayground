@@ -1,14 +1,13 @@
 package source
 
-import androidx.compose.runtime.Composable
-import kotlin.reflect.KProperty
+abstract class T {
+  open val test get() = call()
 
-class FooInline
-
-@Composable
-inline operator fun FooInline.getValue(thisRef: Any?, property: KProperty<*>) = 0
-
-@Composable fun Test(foo: FooInline): Int {
-  val value by foo
-  return value
+  abstract fun a()
 }
+
+class TT : T() {
+  override fun a() {}
+}
+
+private fun call() = 1

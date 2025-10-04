@@ -6,11 +6,14 @@ import org.jetbrains.kotlin.fir.analysis.checkers.declaration.DeclarationChecker
 import org.jetbrains.kotlin.fir.analysis.checkers.declaration.FirSimpleFunctionChecker
 import org.jetbrains.kotlin.fir.analysis.extensions.FirAdditionalCheckersExtension
 import org.jetbrains.kotlin.fir.declarations.FirSimpleFunction
+import org.jetbrains.kotlin.fir.extensions.FirExtensionApiInternals
 import org.jetbrains.kotlin.fir.extensions.FirExtensionRegistrar
 
 class FirCheckerRegistrar(@Suppress("unused") private val logger: Logger) : FirExtensionRegistrar() {
+  @OptIn(FirExtensionApiInternals::class)
   override fun ExtensionRegistrarContext.configurePlugin() {
-    +::FileValidatorExtension
+//    +::FileValidatorExtension
+    +::CallRefinementer
   }
 }
 
@@ -19,7 +22,8 @@ class FileValidatorExtension(session: FirSession) : FirAdditionalCheckersExtensi
     override val simpleFunctionCheckers: Set<FirSimpleFunctionChecker> =
       setOf(
         object : FirSimpleFunctionChecker(MppCheckerKind.Common) {
-          override fun check(declaration: FirSimpleFunction, context: CheckerContext, reporter: DiagnosticReporter) {
+          context(context: CheckerContext, reporter: DiagnosticReporter)
+          override fun check(declaration: FirSimpleFunction) {
             val name = declaration.name.asString()
             println(name)
           }
