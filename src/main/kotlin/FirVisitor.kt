@@ -20,8 +20,8 @@ class FirCheckerRegistrar(@Suppress("unused") private val logger: Logger) : FirE
   @OptIn(FirExtensionApiInternals::class)
   override fun ExtensionRegistrarContext.configurePlugin() {
 //    +::CallRefinementer
-    +::DeclGenerator
-//    +FileValidatorExtension.Factory(logger)
+//    +::DeclGenerator
+    +FileValidatorExtension.Factory(logger)
   }
 }
 

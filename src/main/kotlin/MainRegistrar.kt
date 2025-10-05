@@ -16,7 +16,7 @@ class MainRegistrar : CompilerPluginRegistrar() {
 //        traceMarkersEnabled = false,
 //      )
 //    )
-    IrGenerationExtension.registerExtension(IrTestExtension(logger))
+//    IrGenerationExtension.registerExtension(IrTestExtension(logger))
     FirExtensionRegistrarAdapter.registerExtension(FirCheckerRegistrar(logger))
   }
 }

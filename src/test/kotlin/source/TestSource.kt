@@ -1,13 +1,8 @@
 package source
 
-abstract class T {
-  open val test get() = call()
+context(a: Test)
+fun test() = Unit
 
-  abstract fun a()
+object Test {
+  val a = test()
 }
-
-class TT : T() {
-  override fun a() {}
-}
-
-private fun call() = 1
