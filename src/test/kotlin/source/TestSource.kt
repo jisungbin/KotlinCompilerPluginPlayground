@@ -1,7 +1,7 @@
 package source
 
 context(a: Test)
-fun test() = Unit
+fun test(): Any = a
 
 object Test {
   val a = test()
