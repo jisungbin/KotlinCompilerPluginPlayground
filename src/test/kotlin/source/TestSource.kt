@@ -1,9 +1,15 @@
 package source
 
-val a = Any()
+class AS {
+  val a = Any()
+
+  companion object {
+    val b = Any()
+  }
+}
 
 fun test() {
-  val aa = Any()
-  println(a)
-  println(aa)
+  val instance = AS()
+  println(instance.a)
+  println(AS.b)
 }
