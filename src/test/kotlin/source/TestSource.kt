@@ -1,8 +1,9 @@
 package source
 
-context(a: Test)
-fun test(): Any = a
+val a = Any()
 
-object Test {
-  val a = test()
+fun test() {
+  val aa = Any()
+  println(a)
+  println(aa)
 }

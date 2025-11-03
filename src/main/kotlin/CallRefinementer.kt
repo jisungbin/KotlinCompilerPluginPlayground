@@ -1,6 +1,5 @@
 import org.jetbrains.kotlin.KtSourceElement
 import org.jetbrains.kotlin.fir.FirSession
-import org.jetbrains.kotlin.fir.analysis.checkers.getContainingClassSymbol
 import org.jetbrains.kotlin.fir.expressions.FirFunctionCall
 import org.jetbrains.kotlin.fir.extensions.FirExtensionApiInternals
 import org.jetbrains.kotlin.fir.extensions.FirFunctionCallRefinementExtension
@@ -27,7 +26,7 @@ class CallRefinementer(session: FirSession) : FirFunctionCallRefinementExtension
     TODO("Not yet implemented")
   }
 
-  override fun restoreSymbol(call: FirFunctionCall, name: Name): FirRegularClassSymbol? {
+  override fun restoreSymbol(call: FirFunctionCall, name: Name): FirRegularClassSymbol {
     TODO("Not yet implemented")
   }
 }
